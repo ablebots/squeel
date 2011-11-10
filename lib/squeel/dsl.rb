@@ -6,7 +6,7 @@ module Squeel
     # method calls to fall through to method_missing.
     Squeel.evil_things do
       (instance_methods + private_instance_methods).each do |method|
-        unless method.to_s =~ /^(__|instance_eval|instance_exec)/
+        unless method.to_s =~ /^(__|instance_eval|instance_exec|eval)/
           undef_method method
         end
       end
